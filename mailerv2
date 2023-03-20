@@ -1,0 +1,33 @@
+const nodemailer = require("nodemailer");
+const User = require('./models/User')
+
+
+     transporter = nodemailer.createTransport(
+        {
+            host: 'smtp.gmail.com',
+            port: 587,
+            secure:false,
+            auth: {
+            user: 'dima.gordienkog@gmail.com',
+            pass: 'tfewoywxbbixuyqt',
+        }
+        },
+    )
+    function RegistrationSuccess (to,name)
+    {
+       
+         transporter.sendMail({
+            from: 'dima.gordienkog@gmail.com',
+            to: to,
+            subject: "reg",
+            text: `Спасибо за регистрацию ${name}`,
+          
+          
+        })
+
+}
+
+
+
+
+module.exports =  RegistrationSuccess
